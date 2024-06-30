@@ -1,0 +1,21 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract Htoken is ERC20, Ownable {
+
+	constructor() ERC20("bitcoin", "BTC") Ownable(msg.sender) {
+		_mint(_msgSender(), 10 * 10 ** decimals());
+	}
+
+	function token_transfer (address recipient, uint256 tokens) public{
+		require(balanceOf(msg.sender) >= tokens, "Insufficient balance");
+        transfer(recipient, tokens);
+	}
+
+	function token_burn (uint256 tokens) public{
+		require(balanceOf(msg.sender) >= tokens, "Insufficient balance");
+        _burn(msg.sender, tokens);
+	}    
+}
