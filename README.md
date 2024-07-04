@@ -1,6 +1,6 @@
-# Project Title
+# TYPES OF FUNCTIONS - ETH AVAX PROJECT
 
-Create and Mint a custom tokem
+Create and Mint a custom token
 
 ## Description
 
